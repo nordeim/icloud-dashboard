@@ -1,3 +1,5 @@
+https://www.perplexity.ai/search/i-got-this-error-when-browsing-ipCOC6wSS7KvQIiJsswhUA
+
 GitHub Copilot
 Let me help you fix the Google OAuth configuration. Here are the steps to properly set up Google OAuth:
 
