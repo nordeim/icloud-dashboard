@@ -73,7 +73,9 @@ Let's break down the diff:
 4. **File Path Change:**  Indicates migration from older Next.js Pages Router to the newer App Router in Next.js 13+. This is a Next.js architectural change, not directly related to syntax correctness but contextually important for understanding the code location.
 
 I will structure the answer to cover these points clearly, explaining the implications of each change and giving a balanced perspective on which syntax is "more correct" depending on the context and goals. I should emphasize that neither syntax is inherently *wrong* in TypeScript, but they have different semantic and practical implications.
-```</think>
+```
+</think>
+```
 
 The diff you provided highlights changes in a Next.js route handler file, likely related to authentication using NextAuth. Let's break down each difference:
 
