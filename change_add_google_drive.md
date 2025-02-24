@@ -1,4 +1,6 @@
-```<think>
+```
+<think>
+```
 The user wants me to analyze a code difference provided in `diff` format.
 I need to identify the changes, explain what each change means in terms of code behavior, and then determine which syntax is "more correct".
 "More correct" is subjective here, so I need to consider different aspects like robustness, error handling, and common best practices.
