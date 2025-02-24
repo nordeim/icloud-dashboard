@@ -9,7 +9,7 @@ const ProfileContent: React.FC = () => {
         <FiUser size={48} className="text-gray-500" /> {/* User Icon inside profile */}
       </div>
       <p className="text-lg font-medium">Jess</p>
-      <p className="text-sm text-gray-500">jesspete888@icloud.com</p> {/* Updated email as in screenshot */}
+      <p className="text-sm text-gray-500">apple_id@icloud.com</p> {/* Updated email as in screenshot */}
       <p className="text-sm text-gray-500 mt-2">iCloud</p>
     </div>
   );
