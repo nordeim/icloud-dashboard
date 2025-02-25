@@ -3,27 +3,30 @@
 @tailwind utilities;
 
 :root {
-  --color-bg-primary: #B5D1F3;     /* Even more intense blue background */
-  --color-bg-secondary: #CCE0F6;    /* Stronger panel background */
-  --color-accent: #007AFF;          /* Keep Apple's signature blue */
-  --color-accent-light: #47A1FF;    /* Keep hover state blue */
-  --color-text-primary: #2C3E50;    /* Keep text color */
-  --color-border: #9BBFE4;          /* Darker blue border to match */
+  --color-bg-primary: #4B96F3;     /* Deeper blue background color */
+  --color-bg-secondary: #E8F1FB;    /* Light blue panel background */
+  --color-accent: #007AFF;          /* Apple's signature blue */
+  --color-accent-light: #47A1FF;    /* Lighter blue for hover states */
+  --color-text-primary: #1D1D1F;    /* Dark gray for text */
+  --color-border: rgba(255, 255, 255, 0.2); /* Subtle white border */
 }
 
 body {
-  background-color: var(--color-bg-primary);
+  background: linear-gradient(135deg, #69A6F5 0%, #4B96F3 100%);
   color: var(--color-text-primary);
+  min-height: 100vh;
 }
 
 .icloud-panel {
   background-color: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
+  border-radius: 12px;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(20px);
 }
 
 .icloud-panel:hover {
-  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transform: translateY(-1px);
 }
