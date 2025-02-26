@@ -1,5 +1,14 @@
 import { initializeApp, getApps } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, enableIndexedDbPersistence } from 'firebase/firestore';
+import { 
+  getAuth, 
+  signInWithCredential, 
+  GoogleAuthProvider,
+  setPersistence,
+  browserLocalPersistence,
+  onAuthStateChanged,
+  type User
+} from 'firebase/auth';
 
 const firebaseConfig = {
   // Replace with your Firebase config
@@ -11,16 +20,66 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
-// Initialize Firebase only if it hasn't been initialized already
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
+let db;
+let isInitialized = false;
+let auth;
+let currentUser: User | null = null;
 
-// Initialize Firestore
-const db = getFirestore(app);
+try {
+  // Initialize Firebase only if it hasn't been initialized already
+  const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
+  
+  // Initialize Firestore
+  db = getFirestore(app);
+  auth = getAuth(app);
+  
+  // Set auth persistence
+  setPersistence(auth, browserLocalPersistence);
+  
+  // Enable offline persistence
+  enableIndexedDbPersistence(db).catch((err) => {
+    if (err.code !== 'failed-precondition') {
+      console.warn('Firebase persistence error:', err);
+    }
+  });
+  
+  // Initialize auth state listener
+  if (auth) {
+    onAuthStateChanged(auth, (user) => {
+      currentUser = user;
+      console.log('Auth state changed:', user?.email);
+    });
+  }
+  
+  isInitialized = true;
+} catch (error) {
+  console.error("Error initializing Firebase:", error);
+  // Consider a more sophisticated error handling strategy here, perhaps throwing an error to halt the application or displaying a user-friendly message.
+  isInitialized = false;
+}
 
 if (!process.env.NEXT_PUBLIC_FIREBASE_API_KEY) {
   console.warn(
     'Firebase configuration is missing. Please add the required environment variables.'
   );
+  isInitialized = false;
 }
 
-export { db }; 
+// Update sync function with better error handling
+const syncFirebaseAuth = async (token: string) => {
+  if (!auth) {
+    console.error('Firebase auth not initialized');
+    return;
+  }
+  
+  if (!currentUser && token) {
+    try {
+      const credential = GoogleAuthProvider.credential(null, token);
+      await signInWithCredential(auth, credential);
+    } catch (error) {
+      console.error("Error signing in with credential:", error);
+    }
+  }
+};
+
+export { db, auth, isInitialized, syncFirebaseAuth, currentUser };
