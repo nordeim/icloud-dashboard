@@ -24,9 +24,9 @@ const firebaseConfig = {
 ```
 Important Note: Because you're not using Google Analytics, the measurementId will likely be absent or empty.
 
-Copy the Values: Carefully copy the values associated with apiKey , authDomain , projectId , storageBucket , messagingSenderId , and appId . Do not copy the entire firebaseConfig object; instead, copy the individual values.
+- Copy the Values: Carefully copy the values associated with apiKey , authDomain , projectId , storageBucket , messagingSenderId , and appId . Do not copy the entire firebaseConfig object; instead, copy the individual values.
 
-Populate .env.local : Paste the values into your .env.local file, matching them to the correct environment variables:
+- Populate .env.local : Paste the values into your .env.local file, matching them to the correct environment variables:
 ```
 NEXT_PUBLIC_FIREBASE_API_KEY=YOUR_API_KEY
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=YOUR_PROJECT_ID.firebaseapp.com
