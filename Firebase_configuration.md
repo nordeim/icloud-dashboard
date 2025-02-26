@@ -1,14 +1,14 @@
 Those environment variables are your Firebase configuration values. You get them directly from the Firebase console. Here's how:
 
-Go to the Firebase Console: Open your browser and navigate to the Firebase console ( console.firebase.google.com  - remember, I can't provide direct links, but this is the standard URL). Log in with your Google account associated with your Firebase project ( notetaking-14009 ).
+- Go to the Firebase Console: Open your browser and navigate to the Firebase console ( console.firebase.google.com  - remember, I can't provide direct links, but this is the standard URL). Log in with your Google account associated with your Firebase project ( notetaking-14009 ).
 
-Select your Project: Choose the "notetaking-14009" project from your project list.
+- Select your Project: Choose the "notetaking-14009" project from your project list.
 
-Navigate to Project Settings: In the left-hand navigation menu, click on the gear icon (Settings) and then select "Project settings".
+- Navigate to Project Settings: In the left-hand navigation menu, click on the gear icon (Settings) and then select "Project settings".
 
-Find Your Web App: In the "Your apps" section, you should see a listing of your web apps. If you haven't added a web app yet to your project, you need to add one by clicking the "+ Add app" button. Select the "Web" platform, and give your app a name.
+- Find Your Web App: In the "Your apps" section, you should see a listing of your web apps. If you haven't added a web app yet to your project, you need to add one by clicking the "+ Add app" button. Select the "Web" platform, and give your app a name.
 
-Get the Config: In the "SDK setup and configuration" section, you will find a <script> tag that includes your Firebase configuration. Look for the firebaseConfig object within that <script> You should see something like this:
+- Get the Config: In the "SDK setup and configuration" section, you will find a <script> tag that includes your Firebase configuration. Look for the firebaseConfig object within that <script> You should see something like this:
 
 ```nodejs
 // Your web app's Firebase configuration
